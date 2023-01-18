@@ -5,9 +5,23 @@ export const client = createClient(
 );
 
 export async function getCountries() {
-  console.log(process.env.REACT_APP_SUPABASE_URL);
   const response = await client.from('countries').select('*');
   return checkError(response);
+}
+
+export async function getContinents() {
+  const response = await client.from('countries').select('*');
+  const checked = checkError(response);
+  // mmm i love spagetti
+  // this takes the contries and iterates over it pulling out each continent
+  // that leaves a massive array that Set removes all the duplicates from
+  const filtered = [...new Set(checked.map((continent) => continent.continent))];
+  // and then some have null as the content so i'm filtering by the content-that anon function
+  // returns the content and if it's null nope
+  const moreFiltered = filtered.filter((a) => {
+    return a;
+  });
+  return moreFiltered;
 }
 
 export function checkError({ data, error }) {
