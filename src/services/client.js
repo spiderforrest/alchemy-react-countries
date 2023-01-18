@@ -5,6 +5,7 @@ export const client = createClient(
 );
 
 export async function getCountries() {
+  console.log(process.env.REACT_APP_SUPABASE_URL);
   const response = await client.from('countries').select('*');
   return checkError(response);
 }
