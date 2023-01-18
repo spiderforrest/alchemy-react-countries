@@ -17,7 +17,7 @@ export default function Main() {
         ))}
       </select>
       {countries
-        .filter((country) => country.continent === filter)
+        .filter((country) => country.continent === filter || filter === '')
         .map((country) => (
           <Tile key={country.id} {...country} />
         ))}

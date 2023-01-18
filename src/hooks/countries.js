@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getCountries, getContinents } from '../services/client.js';
 
 export function useContinents() {
