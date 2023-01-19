@@ -10,7 +10,7 @@ export default function Main() {
   // that leaves a massive array that Set removes all the duplicates from
   // and then some have null as the content so i'm filtering by the content-that anon function
   // returns the content and if it's null nope
-  const continents = [...new Set(countries.map((continent) => continent.continent))].filter((a) => {
+  const continents = [...new Set(countries.map((country) => country.continent))].filter((a) => {
     return a;
   });
 
