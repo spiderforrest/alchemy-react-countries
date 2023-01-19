@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import Tile from './Tile.js';
-import { useCountries, useContinents } from '../hooks/countries.js';
+import { useCountries } from '../hooks/countries.js';
 
 export default function Main() {
   const countries = useCountries();
-  const continents = useContinents();
   const [filter, setFilter] = useState('');
+  // mmm i love spagetti
+  // this takes the contries and iterates over it pulling out each continent
+  // that leaves a massive array that Set removes all the duplicates from
+  // and then some have null as the content so i'm filtering by the content-that anon function
+  // returns the content and if it's null nope
+  const continents = [...new Set(countries.map((continent) => continent.continent))].filter((a) => {
+    return a;
+  });
 
   return (
     <div className="Main">
