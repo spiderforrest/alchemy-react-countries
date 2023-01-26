@@ -3,8 +3,8 @@ import Tile from './Tile.js';
 import { useCountries } from '../hooks/countries.js';
 
 export default function Main() {
-  const countries = useCountries();
   const [filter, setFilter] = useState('');
+  const countries = useCountries();
   // mmm i love spagetti
   // this takes the contries and iterates over it pulling out each continent
   // that leaves a massive array that Set removes all the duplicates from
